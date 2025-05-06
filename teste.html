@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiago Pereira Nunes da Silva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+        }
+        .chart-container {
+            height: 300px;
+        }
+        #animated-chart {
+            width: 100%;
+            height: 100%;
+        }
+        /* Adicionei estas regras para o menu mobile */
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-600">TN2K2</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-blue-600 font-medium">Início</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition">Sobre</a>
+                    <a href="#skills" class="text-gray-600 hover:text-blue-600 transition">Habilidades</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition">Projetos</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600">Início</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Sobre</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Habilidades</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Projetos</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="gradient-bg text-white pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Olá, eu sou Tiago Pereira Nunes da Silva</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Analista de Dados & Futuro Cientista de Dados</h2>
+                    <p class="text-lg mb-8 opacity-90">Transformando dados brutos em insights significativos que impulsionam decisões e crescimento empresarial.</p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">Ver Projetos</a>
+                        <a href="#contact" class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition">Contato</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="bg-white rounded-full p-2 shadow-xl">
+                        <img src="img/avatar.png" 
+                             alt="Tiago Pereira Nunes da Silva" class="w-64 h-64 rounded-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Sobre Mim</h2>
+            <div class="md:flex items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="img/tiago.jpg" 
+                         alt="Tiago trabalhando" class="rounded-lg shadow-md w-full max-w-md">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Transformando Dados em Decisões</h3>
+                    <p class="text-lg mb-6 text-gray-700">
+                        Sou um analista de dados apaixonado com mais de 2 anos de experiência ajudando empresas a tomar decisões baseadas em dados. 
+                        Minha especialidade está em coletar, processar e analisar conjuntos de dados complexos para revelar padrões ocultos, 
+                        tendências e insights que impulsionam o crescimento estratégico dos negócios.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-700">
+                        Com uma sólida formação em Análise e Desenvolvimento de Sistemas (ADS) e certificações em estudos com Análise de Dados, Pyhton, Inteligência Artificial (IA), me especializo em criar painéis e relatórios intuitivos 
+                        que comunicam informações complexas de forma clara para stakeholders em todos os níveis.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-graduation-cap text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Formação</h4>
+                                <p class="text-gray-600">Análise e Desenvolvimento de Sistemas (ADS)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-briefcase text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Experiência</h4>
+                                <p class="text-gray-600">+2 Anos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-project-diagram text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Projetos</h4>
+                                <p class="text-gray-600">+15 Concluídos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-users text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Clientes</h4>
+                                <p class="text-gray-600">10 Satisfeitos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="skills" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Minhas Habilidades</h2>
+        
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-xl font-semibold mb-4 text-center">Habilidades Analíticas</h3>
+            <div class="space-y-6">
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Visualização de Dados</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full skill-bar">
+                        <div class="bg-blue-600 skill-bar" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Análise Estatística</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full skill-bar">
+                        <div class="bg-blue-600 skill-bar" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Modelagem Preditiva</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full skill-bar">
+                        <div class="bg-blue-600 skill-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Mineração de Dados</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full skill-bar">
+                        <div class="bg-blue-600 skill-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="font-medium">Inteligência Artificial</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full skill-bar">
+                        <div class="bg-blue-600 skill-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12">
+            <h3 class="text-xl font-semibold mb-6 text-center">Ferramentas & Tecnologias</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fab fa-python text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Python</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-database text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">SQL</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-chart-line text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Tableau</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-chart-pie text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Power BI</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fab fa-google text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Google Analytics</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-file-excel text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Excel</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fab fa-git-alt text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Git</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-brain text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">IA</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-robot text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">PyTorch</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-project-diagram text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Scikit-learn</span>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center w-24">
+                    <i class="fas fa-cloud text-4xl text-blue-500 mb-2"></i>
+                    <span class="text-sm">Supabase/AWS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Meus Projetos</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-globe-americas text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Insights globais sobre salários de IA, ML e ciência de dados 2020-2025</h3>
+                        <p class="text-gray-600 mb-4">Painel interativo analisando tendências de salários de IA, ML e ciência de dados 2020-2025.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Power BI</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SQL</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+                        </div>
+                        <a href="https://github.com/Tiagonunes2k2/Global-Insights-on-AI-ML-and-Data-Science-Salaries-2020-2025-" class="text-blue-600 font-medium hover:underline">Ver Projeto →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-users text-6xl text-green-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Tendências da População Global</h3>
+                        <p class="text-gray-600 mb-4">Análise do Conjunto de Dados de Crescimento Populacional Global fornece um registro abrangente das tendências populacionais em vários países ao longo de várias décadas.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Scikit-learn</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Pandas</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Power BI</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">SQL</span>
+                        </div>
+                        <a href="https://github.com/Tiagonunes2k2/Global-Population-Trends?tab=readme-ov-file" class="text-green-600 font-medium hover:underline">Ver Projeto →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-6xl text-purple-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Como transformei uma ideia de fim de noite em um projeto de IA funcional</h3>
+                        <p class="text-gray-600 mb-4">Tive a ideia de criar um sistema inteligente que utiliza uma LLM para reconhecer e interpretar arquivos como PDF, CSV e textos diversos.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">FastAPI</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Uvicorn</span>               
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Pandas</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">React</span>
+                        </div>
+                        <a href="https://medium.com/@tiagonunes2k2/how-i-turned-a-late-night-idea-into-a-functional-ai-project-203f657c784d" class="text-purple-600 font-medium hover:underline">Ver Projeto →</a>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Mostruário de Visualização de Dados</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Transformando Números em Narrativas</h3>
+                    <p class="text-lg mb-6 text-gray-700">
+                        A visualização eficaz de dados vai além de gráficos bonitos - é sobre contar uma história que 
+                        impulsione ações. Especializo-me em criar visualizações que tornam dados complexos acessíveis e acionáveis.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-700">
+                        Desde painéis interativos até relatórios estáticos, garanto que cada visualização tenha um propósito claro 
+                        e comunique insights de forma eficaz para o público-alvo.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <span class="font-medium">Comunicação clara de insights</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <span class="font-medium">Design apropriado para o público</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check text-blue-600"></i>
+                            </div>
+                            <span class="font-medium">Capacidades de exploração interativa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="chart-container">
+                        <canvas id="animated-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Entre em Contato</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Vamos Trabalhar Juntos</h3>
+                    <p class="mb-8 opacity-90">
+                        Tem um desafio de dados que precisa de ajuda? Interessado em colaborar em um projeto? 
+                        Sinta-se à vontade para entrar em contato - estou sempre aberto a discutir novas oportunidades.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p>tiagonunes2k2@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Telefone</h4>
+                                <p>+55 (19) 99608-5244</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-white bg-opacity-20 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Localização</h4>
+                                <p>Sumaré, SP, Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-4">Conecte-se Comigo</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/tiagonunes2k2/" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Tiagonunes2k2" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            </a>
+                            <a href="https://web.whatsapp.com/19996085244" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/tiagonunes2k2/" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8 text-gray-800">
+                    <h3 class="text-2xl font-semibold mb-6">Envie uma Mensagem</h3>
+                    <form action="https://formsubmit.co/tiagonunes2k2@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/obrigado.html">
+                    
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Tiago Pereira Nunes da Silva</h3>
+                    <p class="text-gray-400 max-w-xs">
+                        Analista de dados transformando números em narrativas que impulsionam o sucesso dos negócios.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-3">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition">Início</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition">Sobre</a></li>
+                            <li><a href="#skills" class="text-gray-400 hover:text-white transition">Habilidades</a></li>
+                            <li><a href="#projects" class="text-gray-400 hover:text-white transition">Projetos</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Serviços</h4>
+                        <ul class="space-y-2">
+                            <li class="text-gray-400">Análise de Dados</li>
+                            <li class="text-gray-400">Visualização de Dados</li>
+                            <li class="text-gray-400">Business Intelligence</li>
+                            <li class="text-gray-400">Modelagem Preditiva</li>
+                            <li class="text-gray-400">Desenvolvimento de Painéis</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="politica-privacidade.html" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
+                            <li><a href="termos-servico.html" class="text-gray-400 hover:text-white transition">Termos de Serviço</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Tiago Pereira Nunes da Silva. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/tiagonunes2k2/" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Tiagonunes2k2" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://web.whatsapp.com/19996085244" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tiagonunes2k2/" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Menu Mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                
+                // Alternar ícone entre hamburger e X
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    document.querySelector('#mobile-menu-button i').classList.remove('fa-times');
+                    document.querySelector('#mobile-menu-button i').classList.add('fa-bars');
+                });
+            });
+
+            // Gráfico animado (código existente)
+            const ctx = document.getElementById('animated-chart').getContext('2d');
+            
+            // Dados de exemplo para o gráfico
+            const data = {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [
+                    {
+                        label: 'Receita',
+                        data: [120000, 150000, 180000, 210000],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Lucro',
+                        data: [40000, 55000, 65000, 75000],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            };
+            
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 2000
+                    }
+                }
+            };
+            
+            new Chart(ctx, config);
+            
+            // Rolagem suave para links de navegação
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
