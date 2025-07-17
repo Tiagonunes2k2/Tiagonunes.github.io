@@ -181,3 +181,16 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.animationDelay = `${index * 0.1}s`;
     });
 });
+
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    // Considera a altura da seção #home para o efeito
+    const homeSection = document.getElementById('home');
+    if (!nav || !homeSection) return;
+    const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+    if (window.scrollY < homeBottom - 80) {
+        nav.style.opacity = '1';
+    } else {
+        nav.style.opacity = '0.7';
+    }
+});

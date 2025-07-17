@@ -1,5 +1,5 @@
 .gradient-bg {
-    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    background: linear-gradient(135deg, #6B73FF 0%, #000dff 100%);
 }
 
 .project-card:hover {
@@ -56,4 +56,12 @@
 .certification-badge:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    opacity: 1;
+}
+
+.semi-transparent {
+    opacity: 0.5;
 }
